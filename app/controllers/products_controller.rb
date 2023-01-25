@@ -1,5 +1,15 @@
 class ProductsController < ApplicationController
 
+  get "/fruits" do
+    fruits = Product.all.where(category: "fruit")
+    fruits.to_json
+  end
+
+  get "/vegetables" do
+    vegetables = Product.all.where(category: "vegetable")
+    vegetables.to_json
+  end
+
   get "/products" do
     Product.all.to_json
   end
@@ -12,7 +22,7 @@ class ProductsController < ApplicationController
   
   post "/products" do
     prod = Product.create(name: params["name"])
-    binding.pry
+    # binding.pry
     if prod.id
       prod.to_json
     else
