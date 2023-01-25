@@ -35,5 +35,23 @@ pur3 = Purchase.create(product_id: p4.id, discount: 0, total: 0, quantity: 6)
 pur4 = Purchase.create(product_id: p3.id, discount: 0, total: 0, quantity: 10)
 pur5 = Purchase.create(product_id: p9.id, discount: 0, total: 0, quantity: 7)
 
+r1 = Review.create(farm_id: f1.id, review: "Great")
+r2 = Review.create(farm_id: f1.id, review: "wowzer")
+r3 = Review.create(farm_id: f1.id, review: "oof")
+r4 = Review.create(farm_id: f1.id, review: "Fresh!")
+r5 = Review.create(farm_id: f1.id, review: "Tasty!")
+r6 = Review.create(farm_id: f2.id, review: "u w0t m8")
+r7 = Review.create(farm_id: f2.id, review: "naisu")
+r8 = Review.create(farm_id: f2.id, review: "aight")
+r9 = Review.create(farm_id: f3.id, review: "goot")
+r10 = Review.create(farm_id: f3.id, review: "good")
+r11 = Review.create(farm_id: f3.id, review: "average")
+r12 = Review.create(farm_id: f4.id, review: "i can grow better")
+r13 = Review.create(farm_id: f4.id, review: "okay")
+r14 = Review.create(farm_id: f4.id, review: "trolololol")
+r15 = Review.create(farm_id: f5.id, review: "don't buy")
+r16 = Review.create(farm_id: f5.id, review: "yikes")
+
+
 
 puts "✅ Done seeding!"

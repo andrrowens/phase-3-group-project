@@ -12,7 +12,7 @@ class PurchaseController < ApplicationController
       
       post "/purchases" do
         pur = Purchase.create(name: params["name"])
-        binding.pry
+        # binding.pry
         if pur.id
           pur.to_json
         else

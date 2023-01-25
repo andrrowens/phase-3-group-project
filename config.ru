@@ -16,3 +16,4 @@ run ApplicationController
 use FarmsController
 use ProductsController
 use PurchaseController
+use ReviewController

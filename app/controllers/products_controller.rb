@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   
   post "/products" do
     prod = Product.create(name: params["name"])
-    binding.pry
+    # binding.pry
     if prod.id
       prod.to_json
     else
