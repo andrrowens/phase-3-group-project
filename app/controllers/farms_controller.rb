@@ -15,11 +15,19 @@ class FarmsController < ApplicationController
 
     post "/farms" do #be sure to add error after create
         # binding.pry
-        farm = Farm.create(name: params["name"])
+        farm = Farm.create(name:params[:name], location:params[:location], rating: params[:rating])
+
+
+
+        # farm = Farm.create(name: params["name"], location: params["location"], rating: params["rating"])
+
+        # farm.to_json
         if farm.id
-            halt 201, farm.to_json
+            # halt 201, farm.to_json
+            halt 201, {farm:farm}.to_json
+
         else 
-            halt 400, farm.errors.full_messages.to_sentence.to_json
+            halt 400, {message:farm.errors.full_messages.to_sentence}.to_json
         end
     end
 
