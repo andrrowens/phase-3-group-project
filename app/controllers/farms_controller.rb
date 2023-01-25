@@ -1,7 +1,11 @@
 class FarmsController < ApplicationController
 
     get "/farms" do
+        if params[:order]
+            Farm.order_by(params[:order]).to_json(include: [:products])
+        else
         Farm.all.to_json(include: [:products])
+        end
     end
 
     get "/farms/:id" do
