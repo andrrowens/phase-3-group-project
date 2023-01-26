@@ -31,6 +31,22 @@ class FarmsController < ApplicationController
         end
     end
 
+
+    get "/farms/:farm_id/products" do
+        farm = find_nested_farm
+        farm.to_json
+        if farm 
+            product = farm.products.where{|p| p.farm_id == params["farm_id"].to_i}
+            if product
+                product.to_json
+            else
+                {message: "No products listed on this farm."}
+            end
+        else 
+            {message: "Where is this farm..?"}
+        end
+    end
+
     get "/farms/:farm_id/products/:id" do
         farm = find_nested_farm
         if farm 
@@ -40,7 +56,8 @@ class FarmsController < ApplicationController
             else
                { message: "Error, did not find product #{params["id"]}"}.to_json
             end
-        else   { message: "Error, did not find farm #{params["farm_id"]}"}.to_json
+        else   
+            { message: "Error, did not find farm #{params["farm_id"]}"}.to_json
         end
     end
 

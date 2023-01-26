@@ -15,6 +15,12 @@ class ReviewController < ApplicationController
         review.to_json
     end
 
+    patch "/reviews/:id" do
+        review = find_review
+        review.update
+        review.to_json
+    end
+
     private
 
     def find_review
