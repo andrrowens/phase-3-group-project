@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2023_01_25_174718) do
   end
 
   create_table "Reviews", force: :cascade do |t|
-    t.integer "farm_id"
+    t.string "name"
     t.string "review"
   end
 

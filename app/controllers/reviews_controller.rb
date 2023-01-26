@@ -9,6 +9,17 @@ class ReviewController < ApplicationController
         review.to_json
     end
 
+    post "/reviews" do
+        review = Review.create(name:params[:name], review:params[:review])
+
+        # review.to_json
+        if review.id
+            halt 201, {review:review}.to_json
+        else
+            halt 400, {message:review.errors.full_messages.to_sentence}.to_json
+        end
+    end
+
     delete "/reviews/:id" do
         review = find_review
         review.destroy
