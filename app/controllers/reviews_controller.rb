@@ -28,8 +28,12 @@ class ReviewController < ApplicationController
 
     patch "/reviews/:id" do
         review = find_review
-        review.update
-        review.to_json
+        # binding.pry
+        if review && review.update(name:params[:name], review:params[:review]) 
+            halt 200, review.to_json
+        else 
+             halt 400, review.errors.full_messages.to_sentence.to_json
+        end
     end
 
     private
