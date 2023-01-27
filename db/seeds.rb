@@ -3,6 +3,7 @@ puts "Deleting old data ..."
 Farm.destroy_all
 Product.destroy_all
 Purchase.destroy_all
+Review.destroy_all
 
 
 
@@ -51,6 +52,8 @@ pur5 = Purchase.create(product_id: p9.id, discount: 0, total: 0, quantity: 7)
 # r14 = Review.create(farm_id: f4.id, review: "trolololol")
 # r15 = Review.create(farm_id: f5.id, review: "don't buy")
 # r16 = Review.create(farm_id: f5.id, review: "yikes")
+
+puts "testing"
 
 r1 = Review.create(name: "Name LastName1", review: "Great")
 r2 = Review.create(name: "Name LastName2", review: "wowzer")
